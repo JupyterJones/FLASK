@@ -4,7 +4,7 @@ This code is a Flask application that defines various routes for image processin
 and blend it with another image. It also has a route that randomly selects an image and displays it on the home page. There are also routes for processing
 images using Pygame and converting an image to a video. Additionally, there are several libraries used in the code, including subprocess, logging, and PIL.
 
-It seems that you have written a Python Flask web application. The application seems to have an endpoint to display an index page, an endpoint to display an upload form, an endpoint to upload a file and process it, an endpoint to blend images, and an endpoint to blend an image and audio together.
+This is a Python Image Processing Flask web application. The application seems to have an endpoint to display an index page, an endpoint to display an upload form, an endpoint to upload a file and process it, an endpoint to blend images, and an endpoint to blend an image and audio together.
 
 The index endpoint randomly selects an image from a directory and displays it on the page.
 
