@@ -1,0 +1,60 @@
+13417  python -m pip install pygame
+13418  python -m pip install moviepy  gtts
+13419  python -m pip install  gtts
+13420  /home/jack/Desktop/FLASK/flask_venv/bin/python /home/jack/Desktop/FLASK/app.py
+13421  source /home/jack/Desktop/FLASK/flask_venv/bin/activate
+13422  conda deactivate
+13423  python -m install subprocess
+13424  python -m pip install subprocess
+13425  mkdir webp
+13426  mv *.webp webp
+13427  ls
+13428  mv *.webp webp
+13429  ls
+13430  thunar
+13431  ls /jack/Desktop/FlaskApp/static/images/uploads
+13432  ls /home/jack/Desktop/FlaskApp/static/images/uploads
+13433  ls /home/jack/Desktop/Flask/static/images/uploads
+13434  ls /home/jack/Desktop/Flask
+13435  ls /home/jack/Desktop/FLASK/static/images/uploads
+13436  mogrify -format png *.webp
+13437  rm *.webp
+13438  source flask_ven/bin/activate
+13439  source flask_venv/bin/activate
+13440  conda deactive
+13441  conda deactivate
+13442  ./app.py
+13443  source flask_venv/bin/acticate
+13444  ls
+13445  source flask_venv/bin/activate
+13446  conda deactivate
+13447  python
+13448  conda deactivate
+13449  source flask_venv/bin/activate
+13450  cd ../
+13451  source flask_venv/bin/activate
+13452  from clean_images import clean_images
+13453  python
+13454  which python
+13455  chmod +x clean_images.py
+13456  ./clean_images.py
+13457  ls /home/jack/Desktop/FLASK/static/images/cleaned
+13458  ./clean_images.py
+13459  ls /home/jack/Desktop/FLASK/static/images/cleaned
+13460  ls /home/jack/Desktop/FLASK/static/images
+13461  ./clean_images.py
+13462  ls /home/jack/Desktop/FLASK/static/images
+13463  ls /home/jack/Desktop/FLASK/static/cleaned
+13464  ls /home/jack/Desktop/FLASK/static/images/cleaned
+13465  ls .gitingore
+13466  ls .gitigore
+13467  ls -rant
+13468  nano .gitignore
+13469  git add .
+13470  git commit -m "Initial commit"
+13471  git checkout master
+13472  git branch main
+13473  git checkout main
+13474  git merge master
+13475  git push origin main
+13476  history 60 >git.history

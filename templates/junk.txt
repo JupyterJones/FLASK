@@ -1,4 +1,79 @@
 
+
+from flask import Flask, render_template
+from PIL import Image
+import os
+import random
+import imageio
+
+app = Flask(__name__)
+
+@app.route("/make_animation")
+def make_animation():
+    # Get a list of all files in the final_images directory
+    image_files = os.listdir("static/final_images")
+    
+    # Select 20 random files from the list
+    selected_files = random.sample(image_files, 20)
+    
+    # Load each selected file, resize it to 400x600, and save it to a temporary directory
+    resized_images = []
+    for filename in selected_files:
+        with Image.open("static/final_images/" + filename) as img:
+            img = img.resize((400, 600))
+            temp_filename = "static/tmp/" + filename
+            img.save(temp_filename)
+            resized_images.append(temp_filename)
+    
+    # Create an animated GIF from the resized images
+    current_datetime = datetime.now()
+    str_current_datetime = str(current_datetime)
+    gif_name = "static/animated_gifs/"+str_current_datetime+"animated.gif"
+    with imageio.get_writer(gif_filename, mode='I', duration=1) as writer:
+        for filename in resized_images:
+            image = imageio.imread(filename)
+            writer.append_data(image)
+    
+    # Return a template that displays the GIF
+    return render_template("make_animation.html", gif_filename=gif_filename)
+
+what do i need to make the file: make_animation.html
+
+--------------------- make_animation.html ----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animated GIF</title>
+</head>
+<body>
+	<img src="{{ gif_filename }}" alt="Animated GIF">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import os
 from PIL import Image
 from flask import Flask, render_template, request

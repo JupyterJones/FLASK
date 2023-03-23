@@ -21,6 +21,7 @@ from gtts import gTTS
 from moviepy.editor import ImageClip, AudioFileClip, CompositeVideoClip
 from io import BytesIO
 import base64
+import imageio
 # Define the Flask application
 app = Flask(__name__)
 
@@ -207,10 +208,10 @@ def image(filename):
 
 @app.route('/add_border')
 def add_border():
-    images = [f for f in os.listdir('static/images/') if os.path.isfile(os.path.join('static/images/', f))]
+    images = [f for f in os.listdir('static/images/uploads/') if os.path.isfile(os.path.join('static/images/uploads/', f))]
     thumbnails = []
     for image in images:
-        with Image.open('static/images/'+image) as img:
+        with Image.open('static/images/uploads/'+image) as img:
             img.thumbnail((200, 200))
             thumbnail_name = 'thumbnail_'+image
             img.save('static/thumbnails/'+thumbnail_name)
@@ -228,7 +229,7 @@ def apply_border():
     selected_image = request.form['image']
     selected_border = request.form['border']
     try:
-        with Image.open('static/images/'+selected_image) as img:
+        with Image.open('static/images/uploads/'+selected_image) as img:
             with Image.open('static/transparent_borders/'+selected_border) as border:
                 img = img.resize(border.size)
                 img.paste(border, (0, 0), border)
@@ -250,7 +251,41 @@ def select_border_image():
         error_message = f'An error occurred: {str(e)}. Please try again.'
         return render_template('add_border.html', error_message=error_message)
 
+@app.route("/make_animation")
+def make_animation():
+    # Get a list of all files in the final_images directory
+    image_files = os.listdir("static/final_images/")
 
+    # Select 20 random files from the list
+    selected_files = random.sample(image_files, 20)
+    
+    # Load each selected file, resize it to 400x600, and save it to a temporary directory
+    resized_images = []
+    for filename in selected_files:
+        with Image.open("static/final_images/" + filename) as img:
+            img = img.resize((400, 600))
+            temp_filename = "static/tmp/" + filename
+            img.save(temp_filename)
+            resized_images.append(temp_filename)
+    
+    # Create an animated GIF from the resized images
+ 
+    gif_filename = "static/animated_gifs/animated.gif"
+    with imageio.get_writer(gif_filename, mode='I', duration=1) as writer:
+        for filename in resized_images:
+            image = imageio.imread(filename)
+            writer.append_data(image)
+    import shutil
+
+    timestr = time.strftime("%Y%m%d-%H%M%S")
+
+  
+    src = 'static/animated_gifs/animated.gif'
+    dst = 'static/animated_gifs/animated' + timestr + '.gif'
+    # 2nd option
+    shutil.copy(src, dst) 
+    # Return a template that displays the GIF
+    return render_template("make_animation.html", gif_filename=gif_filename)
 
 @app.route('/clean_images', methods=['POST'])
 def clean_images_route():

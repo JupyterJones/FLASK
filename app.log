@@ -10,3 +10,4 @@
 2023-03-23 09:27:26,396 ERROR: line 210 clean_images_route [in /home/jack/Desktop/FLASK/app.py:210]
 2023-03-23 09:29:02,420 ERROR: line 210 clean_images_route [in /home/jack/Desktop/FLASK/app.py:210]
 2023-03-23 09:35:31,925 ERROR: line 210 clean_images_route [in /home/jack/Desktop/FLASK/app.py:210]
+2023-03-23 16:04:50,651 ERROR: request.files['file'] [in /home/jack/Desktop/FLASK/app.py:62]

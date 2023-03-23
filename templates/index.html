@@ -10,15 +10,15 @@
 <div class="wrapper">
   <header class="header"><h2 style="color: brown;">Image Processing With Flask</h2></header>
   <aside class="sidebar"><h2 style="color: brown;">AI Art Processing</h2>
-  <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Example image"><br />
+  <p>Below is a random image from the gallery.</p>
   <img style="width: 92%; height: auto;" src="{{ url_for('static', filename='images/' + random_image_file) }}" alt="Example image"><br />
-   
+  <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Example image"><br /> 
     </aside>
 
 
  <article class="content">
     <h1>Links and Executeable Functions</h1>
-    <p>This example uses line-based positioning, to position the header and footer, stretching them across the grid.</p>
+    <p>Below are links to various Image Processing Functions. </p>
     <a href="{{ url_for('get_gallery') }}">View Images</a><br />
     <a href="{{ url_for('view_thumbs') }}">View Thumbnails</a><br />
     <a href="{{ url_for('upload_file') }}">Upload Image</a><br />
@@ -26,6 +26,7 @@
     <a href="{{ url_for('blend_pil') }}">upload and blend images.</a><br />
     <a href="{{ url_for('add_border') }}">Add a border to an image.</a><br />
     <a href="{{ url_for('process_images') }}">Process Images With Mask</a><br /> 
+    <a href="{{ url_for('make_animation') }}">Create an Animated Gif (20 images @ 1 per second.)</a><br /> 
     <form action="{{ url_for('clean_images_route') }}" method="POST">
       <button type="submit">Clean Images</button>
   </form>
