@@ -1,5 +1,16 @@
 # FLASK
 ## Image Processing Flask APP
+Installation:
+
+
+
+<code>git clone https://github.com/JupyterJones/FLASK.git</code><br />
+<code>cd FLASK</code><br />
+<code>python3.8 -m venv flask_venv</code><br />
+<code>source flask_venv.bin/activate</code><br />
+<code>python -m pip install -r requirements.txt</code><br />
+<code>python app.py</code><br /><br />
+
 This is a Python Image Processing Flask web application. The application seems to have an endpoint to display an index page, an endpoint to display an upload form, an endpoint to upload a file and process it, an endpoint to blend images, and an endpoint to blend an image and audio together.
 
 This code is a Flask application that defines various routes for image processing. It includes the ability to upload an image, process it using a mask,

@@ -287,44 +287,6 @@ def make_animation():
     # Return a template that displays the GIF
     return render_template("make_animation.html", gif_filename=gif_filename)
 
-
-
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-    if request.method == 'POST' and 'phrase' in request.form:
-        phrase = request.form['phrase']
-        with open('chat.txt', 'r') as file:
-            lines = file.readlines()
-        results = []
-        for i, line in enumerate(lines):
-            if phrase in line:
-                start = max(0, i-5)
-                end = min(len(lines), i+6)
-                context = lines[start:end]
-                for j, context_line in enumerate(context):
-                    if phrase in context_line:
-                        results.append(f'Line {start+j}: {context_line}')
-                    else:
-                        results.append(f'Line {start+j}: {context_line}')
-        return render_template('results.html', results=results)
-    return render_template('search.html')
-
-from datetime import datetime
-
-@app.route('/add_text', methods=['GET', 'POST'])
-def add_text():
-    if request.method == 'POST':
-        text = request.form['text']
-        now = datetime.now()
-        timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
-        text = f'Text Entry: {timestamp} {text}'
-        with open('chat.txt', 'a') as file:
-            file.write(f'\n{text}')
-        return render_template('add_text.html', message='Text added successfully')
-    else:
-        return render_template('add_text.html')
-
-
 @app.route('/clean_images', methods=['POST'])
 def clean_images_route():
     clean_images()
