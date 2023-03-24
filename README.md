@@ -7,7 +7,7 @@ Installation:
 <code>git clone https://github.com/JupyterJones/FLASK.git</code><br />
 <code>cd FLASK</code><br />
 <code>python3.8 -m venv flask_venv</code><br />
-<code>source flask_venv.bin/activate</code><br />
+<code>source flask_venv/bin/activate</code><br />
 <code>python -m pip install -r requirements.txt</code><br />
 <code>python app.py</code><br /><br />
 
